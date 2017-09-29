@@ -18,17 +18,16 @@ import java.io.IOException;
 
 public class WechatNotifier extends Notifier {
 
-    private final String appid;
-    private final String secret;
+    private  String appid;
+    private  String secret;
     
-    private final String templateId;
-    private final String openIds;
+    private  String templateId;
+    private  String openIds;
 
-    private final boolean onStart;
 
-    private final boolean onSuccess;
+    private  boolean onSuccess;
 
-    private final boolean onFailed;
+    private  boolean onFailed;
 
     public String getJenkinsURL() {
         return jenkinsURL;
@@ -36,9 +35,6 @@ public class WechatNotifier extends Notifier {
 
     private String jenkinsURL;
 
-    public boolean isOnStart() {
-        return onStart;
-    }
 
     public boolean isOnSuccess() {
         return onSuccess;
@@ -48,23 +44,54 @@ public class WechatNotifier extends Notifier {
         return onFailed;
     }
 
+    public String getAppid() {
+        return appid;
+    }
+
+    public void setAppid(String appid) {
+        this.appid = appid;
+    }
+
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
+
+    public String getTemplateId() {
+        return templateId;
+    }
+
+    public void setTemplateId(String templateId) {
+        this.templateId = templateId;
+    }
+
+    public String getOpenIds() {
+        return openIds;
+    }
+
+    public void setOpenIds(String openIds) {
+        this.openIds = openIds;
+    }
+
  
 
     @DataBoundConstructor
-    public WechatNotifier(String appid,String secret,String templateId,String openids, boolean onStart, boolean onSuccess, boolean onFailed, String jenkinsURL) {
+    public WechatNotifier(String appid,String secret,String templateId,String openIds, boolean onStart, boolean onSuccess, boolean onFailed, String jenkinsURL) {
         super();
+        this.jenkinsURL = jenkinsURL;
         this.appid = appid;
         this.secret = secret;
         this.templateId = templateId;
-        this.openIds = openids;
-        this.onStart = onStart;
+        this.openIds = openIds;
         this.onSuccess = onSuccess;
         this.onFailed = onFailed;
-        this.jenkinsURL = jenkinsURL;
     }
 
     public WechatService newWechatService(AbstractBuild build, TaskListener listener) {
-        return new WechatServiceImpl(jenkinsURL, appid,secret,templateId,openIds, onStart, onSuccess, onFailed, listener, build);
+        return new WechatServiceImpl(jenkinsURL, appid,secret,templateId,openIds,  onSuccess, onFailed, listener, build);
     }
 
     @Override

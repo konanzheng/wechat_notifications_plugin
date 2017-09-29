@@ -10,12 +10,22 @@
     <f:textbox default="${descriptor.getDefaultURL()}" />
   </f:entry>
 
-  <f:entry title="钉钉access token" field="accessToken">
+  <f:entry title="微信公众号Appid" field="appid">
     <f:textbox  />
   </f:entry>
-  <f:entry title="在启动构建时通知">
-      <f:checkbox name="onStart" value="true" checked="${instance.isOnStart()}"/>
+
+  <f:entry title="微信公众号AppSecret" field="secret">
+    <f:textbox  />
   </f:entry>
+
+  <f:entry title="微信公众号模板id" field="templateId">
+    <f:textbox  />
+  </f:entry>
+
+  <f:entry title="接收人openid" field="openIds">
+    <f:textbox  />
+  </f:entry>
+ 
   <f:entry title="构建成功时通知">
       <f:checkbox name="onSuccess" value="true" checked="${instance.isOnSuccess()}"/>
   </f:entry>

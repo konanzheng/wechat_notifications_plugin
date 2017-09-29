@@ -18,11 +18,11 @@ import weixin.popular.bean.message.templatemessage.TemplateMessageResult;
  */
 public class WechatServiceImpl implements WechatService {
     
-    private final String appid;
-    private final String secret;
-    private final String openIds;
+    private  String appid;
+    private  String secret;
+    private  String openIds;
     
-    private final String templateId;
+    private  String templateId;
 
     private Logger logger = LoggerFactory.getLogger(WechatService.class);
 
@@ -39,12 +39,12 @@ public class WechatServiceImpl implements WechatService {
     private static final String apiUrl = "https://oapi.dingtalk.com/robot/send?access_token=";
 
 
-    public WechatServiceImpl(String jenkinsURL, String appid,String secret,String templateId,String openids, boolean onStart, boolean onSuccess, boolean onFailed, TaskListener listener, AbstractBuild build) {
+    public WechatServiceImpl(String jenkinsURL, String appid,String secret,String templateId,String openIds, boolean onSuccess, boolean onFailed, TaskListener listener, AbstractBuild build) {
         this.jenkinsURL = jenkinsURL;
         this.appid = appid;
         this.secret = secret;
         this.templateId = templateId;
-        this.openIds = openids;
+        this.openIds = openIds;
         this.onSuccess = onSuccess;
         this.onFailed = onFailed;
         this.listener = listener;
@@ -151,6 +151,38 @@ public class WechatServiceImpl implements WechatService {
                 logger.info("MsgId:"+result.getMsgid()+",ErrorCode:"+result.getErrcode()+",ErrMsg:"+result.getErrmsg());
             }
         }
+    }
+
+    public String getAppid() {
+        return appid;
+    }
+
+    public void setAppid(String appid) {
+        this.appid = appid;
+    }
+
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
+
+    public String getOpenIds() {
+        return openIds;
+    }
+
+    public void setOpenIds(String openIds) {
+        this.openIds = openIds;
+    }
+
+    public String getTemplateId() {
+        return templateId;
+    }
+
+    public void setTemplateId(String templateId) {
+        this.templateId = templateId;
     }
 
 
