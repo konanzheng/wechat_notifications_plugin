@@ -10,7 +10,7 @@ jenkins微信通知插件，通过微信测试号发送jenkins构建结果通知
 多个openid用英文逗号分割即可
 模板目前是固定的，可以根据自己需求修改
 
-```
+    
         {{first.DATA}}
         项目名称：{{project.DATA}}
         构建编号：{{build.DATA}}
@@ -19,7 +19,7 @@ jenkins微信通知插件，通过微信测试号发送jenkins构建结果通知
         持续时间: {{duration.DATA}}
         {{remark.DATA}}
 
-```
+    
 
 [微信测试号地址](https://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index)
 
