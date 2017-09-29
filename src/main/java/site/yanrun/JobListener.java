@@ -11,9 +11,6 @@ import hudson.tasks.Publisher;
 import javax.annotation.Nonnull;
 import java.util.Map;
 
-/**
- * Created by Marvin on 16/10/7.
- */
 @Extension
 public class JobListener extends RunListener<AbstractBuild> {
 

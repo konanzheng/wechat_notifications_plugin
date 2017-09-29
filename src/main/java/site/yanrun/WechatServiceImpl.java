@@ -13,9 +13,7 @@ import weixin.popular.api.TokenAPI;
 import weixin.popular.bean.message.templatemessage.TemplateMessage;
 import weixin.popular.bean.message.templatemessage.TemplateMessageResult;
 
-/**
- * Created by Marvin on 16/10/8.
- */
+ 
 public class WechatServiceImpl implements WechatService {
     
     private  String appid;
@@ -35,8 +33,6 @@ public class WechatServiceImpl implements WechatService {
     private TaskListener listener;
 
     private AbstractBuild build;
-
-    private static final String apiUrl = "https://oapi.dingtalk.com/robot/send?access_token=";
 
 
     public WechatServiceImpl(String jenkinsURL, String appid,String secret,String templateId,String openIds, boolean onSuccess, boolean onFailed, TaskListener listener, AbstractBuild build) {
@@ -67,9 +63,7 @@ public class WechatServiceImpl implements WechatService {
 
     @Override
     public void success() {
-        String pic = "http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png";
         String title = String.format("%s%s构建成功", build.getProject().getDisplayName(), build.getDisplayName());
-
         String link = getBuildUrl();
         LinkedHashMap data =   getData();
         Map first = new HashMap();
@@ -88,7 +82,6 @@ public class WechatServiceImpl implements WechatService {
 
     @Override
     public void failed() {
-        String pic = "http://www.iconsdb.com/icons/preview/soylent-red/x-mark-3-xxl.png";
         String title = String.format("%s%s构建失败", build.getProject().getDisplayName(), build.getDisplayName());
         String link = getBuildUrl();
         LinkedHashMap data =   getData();
